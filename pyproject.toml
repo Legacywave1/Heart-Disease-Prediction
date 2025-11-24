@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "heart-disease-prediction"
+version = "0.0.1"
+dependencies = [
+"pandas",
+"numpy",
+"scikit-learn",
+"mlflow",
+"optuna",
+"dvc",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
