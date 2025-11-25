@@ -1,0 +1,5 @@
+outs:
+- md5: 4bf36a7139bf96039d13d2f7ee671fc3
+  size: 81920
+  hash: md5
+  path: heart_disease.db

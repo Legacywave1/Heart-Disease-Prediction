@@ -1,5 +1,5 @@
 venv/
 __pycache__/
 *.db
-Data/
+Data/raw_data/
 logs/
