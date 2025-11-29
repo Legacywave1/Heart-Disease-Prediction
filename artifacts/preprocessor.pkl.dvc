@@ -1,0 +1,5 @@
+outs:
+- md5: 2c914ce52ea0d36691b4fb667ebb0779
+  size: 6729
+  hash: md5
+  path: preprocessor.pkl
