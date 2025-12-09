@@ -3,3 +3,4 @@ __pycache__/
 *.db
 Data/raw_data/
 logs/
+Data/transformed_data/*.parquet

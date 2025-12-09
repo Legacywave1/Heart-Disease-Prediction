@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/Ankuc/Documents/Heart%20Disease%20Prediction/mlruns/400051342535826825/acfa52f7e2f74b12a313967a78b15de4/artifacts
+end_time: 1764990978628
+entry_point_name: ''
+experiment_id: '400051342535826825'
+lifecycle_stage: active
+run_id: acfa52f7e2f74b12a313967a78b15de4
+run_name: XGBoost Final Training
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764990445619
+status: 3
+tags: []
+user_id: Ankuc

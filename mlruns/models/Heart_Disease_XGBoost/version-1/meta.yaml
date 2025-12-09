@@ -1,0 +1,15 @@
+creation_timestamp: 1764989245925
+current_stage: None
+deployment_job_state: null
+description: null
+last_updated_timestamp: 1764989245925
+model_id: m-4796978fcdd54363b5600278683e906b
+name: Heart_Disease_XGBoost
+run_id: 8d78cac2d103404eab29424b379f5c31
+run_link: null
+source: models:/m-4796978fcdd54363b5600278683e906b
+status: READY
+status_message: null
+storage_location: file:///C:/Users/Ankuc/Documents/Heart%20Disease%20Prediction/mlruns/400051342535826825/models/m-4796978fcdd54363b5600278683e906b/artifacts
+user_id: null
+version: 1

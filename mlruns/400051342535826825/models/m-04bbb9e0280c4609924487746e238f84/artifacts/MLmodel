@@ -1,0 +1,57 @@
+artifact_path: file:///C:/Users/Ankuc/Documents/Heart%20Disease%20Prediction/mlruns/400051342535826825/models/m-04bbb9e0280c4609924487746e238f84/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.14.0
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.7.2
+is_signature_from_type_hint: false
+mlflow_version: 3.6.0
+model_id: m-04bbb9e0280c4609924487746e238f84
+model_size_bytes: 439421
+model_uuid: m-04bbb9e0280c4609924487746e238f84
+prompts: null
+run_id: b6d2decf4a574daaa4b4cf4dcafd6ca4
+saved_input_example_info:
+  artifact_path: input_example.json
+  pandas_orient: split
+  serving_input_path: serving_input_example.json
+  type: dataframe
+signature:
+  inputs: '[{"type": "double", "name": "numerical_pipeline__Age", "required": true},
+    {"type": "double", "name": "numerical_pipeline__RestingBP", "required": true},
+    {"type": "double", "name": "numerical_pipeline__Cholesterol", "required": true},
+    {"type": "double", "name": "numerical_pipeline__thalch", "required": true}, {"type":
+    "double", "name": "numerical_pipeline__OldPeak", "required": true}, {"type": "double",
+    "name": "numerical_pipeline__Heart Rate Reserve", "required": true}, {"type":
+    "double", "name": "Categorical_one_hot_pipeline__RestingECG_lv hypertrophy", "required":
+    true}, {"type": "double", "name": "Categorical_one_hot_pipeline__RestingECG_normal",
+    "required": true}, {"type": "double", "name": "Categorical_one_hot_pipeline__RestingECG_st-t
+    abnormality", "required": true}, {"type": "double", "name": "Categorical_one_hot_pipeline__ChestPainType_asymptomatic",
+    "required": true}, {"type": "double", "name": "Categorical_one_hot_pipeline__ChestPainType_atypical
+    angina", "required": true}, {"type": "double", "name": "Categorical_one_hot_pipeline__ChestPainType_non-anginal",
+    "required": true}, {"type": "double", "name": "Categorical_one_hot_pipeline__ChestPainType_typical
+    angina", "required": true}, {"type": "double", "name": "Categorical_one_hot_pipeline__Blood
+    Pressure Category_Elevated", "required": true}, {"type": "double", "name": "Categorical_one_hot_pipeline__Blood
+    Pressure Category_Hypertension_Stage_1", "required": true}, {"type": "double",
+    "name": "Categorical_one_hot_pipeline__Blood Pressure Category_Hypertension_Stage_2",
+    "required": true}, {"type": "double", "name": "Categorical_one_hot_pipeline__Blood
+    Pressure Category_Normal", "required": true}, {"type": "double", "name": "Categorical_one_hot_pipeline__Blood
+    Pressure Category_unknown", "required": true}, {"type": "double", "name": "Categorical_ordinal_encoding__ST_Slope",
+    "required": true}, {"type": "double", "name": "Categorical_ordinal_encoding__Age
+    Category", "required": true}, {"type": "double", "name": "Categorical_ordinal_encoding__Sex",
+    "required": true}, {"type": "double", "name": "Categorical_ordinal_encoding__FastingBS",
+    "required": true}, {"type": "double", "name": "Categorical_ordinal_encoding__ExerciseAngina",
+    "required": true}]'
+  outputs: '[{"type": "long", "required": true}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2025-12-06 03:01:34.423638'

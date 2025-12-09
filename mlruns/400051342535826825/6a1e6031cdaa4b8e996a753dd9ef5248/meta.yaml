@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/Ankuc/Documents/Heart%20Disease%20Prediction/mlruns/400051342535826825/6a1e6031cdaa4b8e996a753dd9ef5248/artifacts
+end_time: 1764565240160
+entry_point_name: ''
+experiment_id: '400051342535826825'
+lifecycle_stage: active
+run_id: 6a1e6031cdaa4b8e996a753dd9ef5248
+run_name: Training Run
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764557462348
+status: 4
+tags: []
+user_id: Ankuc
