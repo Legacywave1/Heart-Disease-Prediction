@@ -55,7 +55,7 @@ class PatientInput(BaseModel):
                 'Cholesterol': 217,
                 'FastingBS': 0,
                 'RestingECG': 'Normal',
-                'thalach': 111,
+                'thalch': 111,
                 'ExerciseAngina': 'Y',
                 'OldPeak': 5.6,
                 'ST_Slope': 'Flat'
