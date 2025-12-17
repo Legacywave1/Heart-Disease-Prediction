@@ -7,3 +7,5 @@ Requires-Dist: scikit-learn
 Requires-Dist: mlflow
 Requires-Dist: optuna
 Requires-Dist: dvc
+Requires-Dist: xgboost
+Requires-Dist: shap

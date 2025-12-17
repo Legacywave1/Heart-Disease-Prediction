@@ -12,6 +12,9 @@ dependencies = [
 "mlflow",
 "optuna",
 "dvc",
+"xgboost",
+"shap"
+
 ]
 
 [tool.setuptools.packages.find]

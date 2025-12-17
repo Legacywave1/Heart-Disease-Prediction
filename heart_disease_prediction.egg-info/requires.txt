@@ -4,3 +4,5 @@ scikit-learn
 mlflow
 optuna
 dvc
+xgboost
+shap
