@@ -4,3 +4,4 @@ __pycache__/
 Data/raw_data/
 logs/
 Data/transformed_data/*.parquet
+heart_disease_prediction.egg-info
