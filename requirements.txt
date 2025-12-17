@@ -5,3 +5,4 @@ mlflow
 optuna
 dvc
 xgboost
+shap
