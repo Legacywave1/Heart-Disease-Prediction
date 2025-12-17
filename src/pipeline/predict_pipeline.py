@@ -1,6 +1,7 @@
 import pandas as pd
 import mlflow
 from mlflow.tracking import MlflowClient
+import os
 import joblib
 import numpy as np
 from pathlib import Path
@@ -15,6 +16,10 @@ class PredictPipeline:
         self.model_name = "Heart_Disease_XGBoost"
         self.preprocessor_path = Path("artifacts/preprocessor.pkl")
         self.preprocessor = self._load_preprocessor()
+        # Ensure MLflow uses the repository-local mlruns directory
+        mlruns_path = os.path.abspath('mlruns')
+        mlflow.set_tracking_uri(f"file://{mlruns_path}")
+
         self.model = self._load_best_available_model()
 
     def _load_preprocessor(self):
@@ -26,31 +31,36 @@ class PredictPipeline:
         client = MlflowClient()
 
         # Try Production → Staging → Latest version
-        try:
-            model = mlflow.sklearn.load_model(f"models:/{self.model_name}/Production")
-            logging.info("Loaded model: Production")
-            return model
-        except:
-            pass
-
-        try:
-            model = mlflow.sklearn.load_model(f"models:/{self.model_name}/Staging")
-            logging.info("Loaded model: Staging")
-            return model
-        except:
-            pass
+        # Try Production → Staging → Latest version (each may point to remote paths)
+        for stage in ["Production", "Staging"]:
+            try:
+                model = mlflow.sklearn.load_model(f"models:/{self.model_name}/{stage}")
+                logging.info(f"Loaded model: {stage}")
+                return model
+            except Exception:
+                logging.warning(f"Could not load model from stage: {stage}")
 
         # Fallback: get latest version by version number
         try:
             versions = client.search_model_versions(f"name='{self.model_name}'")
-            if not versions:
-                raise ValueError(f"No versions found for model '{self.model_name}'")
-            latest = max(versions, key=lambda x: int(x.version))
-            model = mlflow.sklearn.load_model(f"models:/{self.model_name}/{latest.version}")
-            logging.info(f"Loaded model: Latest version {latest.version}")
-            return model
-        except Exception as e:
-            raise RuntimeError(f"Could not load any version of {self.model_name}. Error: {e}")
+            if versions:
+                latest = max(versions, key=lambda x: int(x.version))
+                try:
+                    model = mlflow.sklearn.load_model(f"models:/{self.model_name}/{latest.version}")
+                    logging.info(f"Loaded model: Latest version {latest.version}")
+                    return model
+                except Exception as e:
+                    logging.warning(f"Failed to load latest mlflow model: {e}")
+        except Exception:
+            logging.warning("Failed to query mlflow model versions")
+
+        # Fallback: try loading local artifact saved during training
+        local_model_path = Path("artifacts/trained_model.pkl")
+        if local_model_path.exists():
+            logging.info("Loading local model from artifacts/trained_model.pkl")
+            return joblib.load(local_model_path)
+
+        raise RuntimeError(f"Could not load any version of {self.model_name}. Checked MLflow and local artifacts.")
 
     def recreate_engineered_features(self, df: pd.DataFrame) -> pd.DataFrame:
         df['Heart Rate Reserve'] = (220 - df['Age']) - df['thalch']

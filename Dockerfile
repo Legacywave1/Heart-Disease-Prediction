@@ -23,6 +23,7 @@ COPY app/main.py .
 COPY src ./src
 COPY artifacts ./artifacts
 COPY mlruns ./mlruns
+COPY mlruns_backup ./mlruns_backup
 
 EXPOSE 8000
 

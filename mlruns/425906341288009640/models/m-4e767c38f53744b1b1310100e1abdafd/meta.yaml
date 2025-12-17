@@ -1,0 +1,10 @@
+artifact_location: file:///workspaces/Heart-Disease-Prediction/mlruns/425906341288009640/models/m-4e767c38f53744b1b1310100e1abdafd/artifacts
+creation_timestamp: 1765939854013
+experiment_id: '425906341288009640'
+last_updated_timestamp: 1765939856530
+model_id: m-4e767c38f53744b1b1310100e1abdafd
+model_type: null
+name: model
+source_run_id: bdeefba11fd141fcbede99bde593a37f
+status: 2
+status_message: null

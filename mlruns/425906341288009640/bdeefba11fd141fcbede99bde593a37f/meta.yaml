@@ -1,0 +1,14 @@
+artifact_uri: file:///workspaces/Heart-Disease-Prediction/mlruns/425906341288009640/bdeefba11fd141fcbede99bde593a37f/artifacts
+end_time: 1765939856597
+entry_point_name: ''
+experiment_id: '425906341288009640'
+lifecycle_stage: active
+run_id: bdeefba11fd141fcbede99bde593a37f
+run_name: XGBoost Final Training
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1765939798546
+status: 3
+tags: []
+user_id: codespace

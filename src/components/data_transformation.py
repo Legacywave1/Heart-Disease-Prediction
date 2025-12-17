@@ -29,9 +29,28 @@ class DataTransformation:
             conn.close()
 
             df1 = df.copy()
+            
+            # Rename columns to match expected schema
+            df1 = df1.rename(columns={
+                'age': 'Age',
+                'sex': 'Sex',
+                'cp': 'ChestPainType',
+                'trestbps': 'RestingBP',
+                'chol': 'Cholesterol',
+                'fbs': 'FastingBS',
+                'restecg': 'RestingECG',
+                'thalch': 'thalch',
+                'exang': 'ExerciseAngina',
+                'oldpeak': 'OldPeak',
+                'slope': 'ST_Slope',
+                'num': 'DiagnosisResult'
+            })
 
-            df1 = df1.drop(['Patient_id', 'Data_source','Thalassemia','MajorVessels'], axis = 1)
+            # Drop columns that may not exist
+            cols_to_drop = [col for col in ['Patient_id', 'Data_source','Thalassemia','MajorVessels', 'id', 'dataset', 'ca', 'thal'] if col in df1.columns]
+            df1 = df1.drop(cols_to_drop, axis=1)
 
+            
             categorical_col = ['Sex', 'ChestPainType', 'RestingECG']
             df1[categorical_col] = df1[categorical_col].astype('category')
             bool_cols = ['ExerciseAngina', 'FastingBS']
@@ -66,7 +85,7 @@ class DataTransformation:
             cat_oh = [ 'RestingECG', 'ChestPainType', 'Blood Pressure Category']
             cat_oe = ['ST_Slope', 'Age Category', 'Sex', 'FastingBS', 'ExerciseAngina']
 
-            slope_order = ['upsloping', 'flat', 'downsloping']
+            slope_order = ['Up', 'Flat', 'Down']
             age_order = ['Young_Adult', 'Middle_Aged', 'Senior']
             sex_order = ['Female', 'Male']
             bool_order = [False, True]
@@ -123,4 +142,4 @@ class DataTransformation:
 
 if __name__ == '__main__':
     preprocessing = DataTransformation()
-    preprocessing.commence_transformation(r'C:\Users\Ankuc\Documents\Heart Disease Prediction\Data\heart_disease.db')
+    preprocessing.commence_transformation('Data/heart_disease.db')

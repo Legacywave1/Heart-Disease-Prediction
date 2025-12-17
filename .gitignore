@@ -5,3 +5,4 @@ Data/raw_data/*.data
 logs/
 Data/transformed_data/*.parquet
 heart_disease_prediction.egg-info
+mlruns_backup/

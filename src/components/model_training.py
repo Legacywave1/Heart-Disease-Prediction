@@ -24,6 +24,9 @@ class ModelTrainingConfig:
 class ModelTraining:
     def __init__(self):
         self.config = ModelTrainingConfig()
+        # Ensure MLflow uses the repository-local mlruns directory for artifacts
+        mlruns_path = os.path.abspath('mlruns')
+        mlflow.set_tracking_uri(f"file://{mlruns_path}")
         mlflow.set_experiment('Heart Disease Predictor')
 
     def objective(self, trial, X, y):
@@ -86,5 +89,5 @@ class ModelTraining:
 if __name__ == '__main__':
     train_obj = ModelTraining()
     result = train_obj.initiate_train(
-        r'C:\Users\Ankuc\Documents\Heart Disease Prediction\Data\transformed_data\train_heart_disease.parquet',
-        r'C:\Users\Ankuc\Documents\Heart Disease Prediction\Data\transformed_data\test_heart_disease.parquet')
+        r'Data/transformed_data/train_heart_disease.parquet',
+        r'/workspaces/Heart-Disease-Prediction/Data/transformed_data/test_heart_disease.parquet')
